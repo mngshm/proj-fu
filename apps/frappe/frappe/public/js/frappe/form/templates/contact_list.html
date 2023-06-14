@@ -1,0 +1,56 @@
+<div class="clearfix"></div>
+{% for(const contact of contact_list) { %}
+	<div class="address-box">
+		<p class="h6 flex align-center">
+			{%= contact.first_name %} {%= contact.last_name %}
+			{% if(contact.is_primary_contact) { %}
+				<span class="text-muted">&nbsp;({%= __("Primary") %})</span>
+			{% } %}
+			{% if(contact.designation){ %}
+			 <span class="text-muted">&ndash; {%= contact.designation %}</span>
+			{% } %}
+			<a href="/app/Form/Contact/{%= encodeURIComponent(contact.name) %}"
+				class="btn btn-xs btn-default ml-auto">
+				{%= __("Edit") %}
+			</a>
+		</p>
+		{% if (contact.phone || contact.mobile_no || contact.phone_nos.length > 0) { %}
+		<p>
+			{% if(contact.phone) { %}
+				<a href="tel:{%= frappe.utils.escape_html(contact.phone) %}">{%= frappe.utils.escape_html(contact.phone) %}</a> &#183; <span class="text-muted">{%= __("Primary Phone") %}</span><br>
+			{% endif %}
+			{% if(contact.mobile_no) { %}
+				<a href="tel:{%= frappe.utils.escape_html(contact.mobile_no) %}">{%= frappe.utils.escape_html(contact.mobile_no) %}</a> &#183; <span class="text-muted">{%= __("Primary Mobile") %}</span><br>
+			{% endif %}
+			{% if(contact.phone_nos) { %}
+				{% for(const phone_no of contact.phone_nos) { %}
+					<a href="tel:{%= frappe.utils.escape_html(phone_no.phone) %}">{%= frappe.utils.escape_html(phone_no.phone) %}</a><br>
+				{% } %}
+			{% endif %}
+		</p>
+		{% endif %}
+		{% if (contact.email_id || contact.email_ids.length > 0) { %}
+		<p>
+			{% if(contact.email_id) { %}
+				<a href="mailto:{%= frappe.utils.escape_html(contact.email_id) %}">{%= frappe.utils.escape_html(contact.email_id) %}</a> &#183; <span class="text-muted">{%= __("Primary Email") %}</span><br>
+			{% endif %}
+			{% if(contact.email_ids) { %}
+				{% for(const email_id of contact.email_ids) { %}
+					<a href="mailto:{%= frappe.utils.escape_html(email_id.email_id) %}">{%= frappe.utils.escape_html(email_id.email_id) %}</a><br>
+				{% } %}
+			{% endif %}
+		</p>
+		{% endif %}
+		{% if (contact.address) { %}
+		<p>
+			{%= contact.address %}
+		</p>
+		{% endif %}
+	</div>
+{% } %}
+{% if(!contact_list.length) { %}
+<p class="text-muted small">{%= __("No contacts added yet.") %}</p>
+{% } %}
+<p><button class="btn btn-xs btn-default btn-contact">
+	{{ __("New Contact") }}</button>
+</p>

@@ -1,0 +1,14 @@
+{
+  "name": "projectfu",
+  "version": "1.0.0",
+  "description": "this is a project for foss united",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "cd Actions App && yarn dev",
+    "build": "cd Actions App && yarn build"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
