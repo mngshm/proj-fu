@@ -1,4 +1,4 @@
-from . import __version__ as app_version
+from .projectfu import __version__ as app_version
 import frappe 
 
 app_name = "projectfu"
