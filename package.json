@@ -1,0 +1,14 @@
+{
+  "name": "projectfu",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "postinstall": "cd frontend && yarn install",
+    "build": "cd frontend && yarn build",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
