@@ -7,7 +7,7 @@ This is the code dump for a simple ToDo App which I made learning with and takin
 - [Frappe UI](https://frappeui.com/) 
 
 ### Demo 
-- [demo gif](./asset/demo.gif)
+- ![demo gif](demo.gif) 
 
 ### Credits 
 - @NagariaHussain for helping with directory stucture. 
